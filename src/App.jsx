@@ -38,10 +38,8 @@ function AppShell() {
         <Router>
           <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-[#0F172A] text-slate-900 dark:text-slate-100 transition-colors duration-200 font-sans">
             
-            {/* Global Navbar */}
             <Navbar onOpenBookingModal={handleOpenDefaultBookingModal} />
 
-            {/* Main Application Body */}
             <main className="flex-grow">
               <Routes>
                 <Route path="/" element={<Home />} />
@@ -59,17 +57,14 @@ function AppShell() {
               </Routes>
             </main>
 
-            {/* Global Footer */}
             <Footer />
 
-            {/* Global Quick Booking Modal */}
             <BookingModal
               isOpen={!!globalBookingModalService}
               onClose={() => setGlobalBookingModalService(null)}
               selectedService={globalBookingModalService}
             />
 
-            {/* Notification Toasts */}
             <ToastContainer position="bottom-right" theme="colored" autoClose={3000} />
 
           </div>
