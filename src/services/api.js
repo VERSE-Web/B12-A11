@@ -2,7 +2,6 @@ import axios from 'axios';
 
 export const DB_SERVER = import.meta.env.VITE_DB_SERVER || 'https://style-decore-server-dun.vercel.app/';
 
-// Format base URL ensuring trailing slash handling
 const getBaseUrl = () => {
   let url = DB_SERVER.trim();
   if (!url.endsWith('/')) {
@@ -19,7 +18,6 @@ const apiClient = axios.create({
   timeout: 10000,
 });
 
-// Generic helper with endpoint fallbacks
 async function fetchWithFallback(endpoints, fallbackData = []) {
   for (const ep of endpoints) {
     try {
@@ -34,13 +32,11 @@ async function fetchWithFallback(endpoints, fallbackData = []) {
         }
       }
     } catch (err) {
-      // Continue to next endpoint attempt
     }
   }
   return fallbackData;
 }
 
-// Default MongoDB Services collection (matches MongoDB Atlas 'diddy' database 'Services' collection)
 export const MONGODB_SERVICES = [
   {
     _id: "6a63b04a55c3223af2c66fba",
